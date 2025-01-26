@@ -58,4 +58,15 @@ public class BeerController {
         beerService.deleteBeer(beerId);
     }
 
+    @ExceptionHandler(BeerNotFound.class)
+    @ResponseStatus(HttpStatus.NOT_FOUND)
+    public ResponseEntity<String> handleBeerNotFound(BeerNotFound ex) {
+        return new ResponseEntity<>(ex.getMessage(), HttpStatus.NOT_FOUND);
+    }
+
+    @ExceptionHandler(BeerCantBeCreated.class)
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    public ResponseEntity<String> handleBeerCantBeCreated(BeerCantBeCreated ex) {
+        return new ResponseEntity<>(ex.getMessage(), HttpStatus.BAD_REQUEST);
+    }
 }

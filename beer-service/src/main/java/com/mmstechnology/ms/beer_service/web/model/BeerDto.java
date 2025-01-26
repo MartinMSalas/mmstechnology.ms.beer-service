@@ -20,7 +20,7 @@ import java.util.UUID;
 @AllArgsConstructor
 public class BeerDto {
 
-    UUID uuid;
+    private UUID id;
 
     private String beerName;
     private BeerStyleEnum beerStyle;
